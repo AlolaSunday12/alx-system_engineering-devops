@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-# This script groups visitors by IP and HTTP status code and displays
-# the data in descending order of occurrences.
-
+# This script groups visitors by IP and HTTP status code and displays the data in descending order of occurrences.
 
 # Check if the apache-access.log file exists
 if [ ! -f "apache-access.log" ]; then
@@ -9,7 +7,5 @@ if [ ! -f "apache-access.log" ]; then
   exit 1
 fi
 
-# Use awk to group visitors by IP and HTTP status code.
-awk '{ip_http[$1" "$9]++} END {for (entry in ip_http) print ip_http[entry], entry}' \
-apache-access.log | sort -nr
-
+# Use awk to group visitors by IP and HTTP status code, count occurrences, and sort the data
+awk '{ip_http[$1" "$9]++} END {for (entry in ip_http) print ip_http[entry], entry}' apache-access.log | sort -nr | fold -w 80
