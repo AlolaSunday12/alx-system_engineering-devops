@@ -1,12 +1,17 @@
 #!/usr/bin/env bash
-# This script displays the time for 12 hours and 59 minutes
+#nested loop stuff
 
 
-hour=0
-while [ $hour -lt 12 ]; do
-    echo "Hour: $hour"
-    for (( minute=1; minute<=59; minute++ )); do
-        echo "$minute"
+hours=0
+minutes=1
+while [ $hours -ne 13 ]
+do
+    echo "Hour: $hours"
+    ((hours++))
+    while [ $minutes -ne 60 ]
+    do
+	echo $minutes
+	((minutes++))
     done
-    ((hour++))
+    ((minutes = 1))
 done
