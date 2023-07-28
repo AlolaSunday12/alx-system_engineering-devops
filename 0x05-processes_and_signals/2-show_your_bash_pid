@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# This script displays lines containing the word "bash" and finds the PID
+# of the current Bash process.
+
+
+# Use ps to list all processes, and grep to filter lines containing
+# the word "bash"
+ps aux | grep bash | grep -v grep
+
+# shellcheck disable=SC2009
+# Explanation: The above line disables the SC2009 ShellCheck warning for
+# using 'ps | grep'. 
+# We can safely disable this warning since we are aware of how it's being
+# used in this specific script.
+
