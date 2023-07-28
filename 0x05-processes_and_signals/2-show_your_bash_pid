@@ -5,7 +5,7 @@
 
 # Use ps to list all processes, and grep to filter lines containing
 # the word "bash"
-ps aux | grep bash | grep -v grep
+ps auxf | grep bash
 
 # shellcheck disable=SC2009
 # Explanation: The above line disables the SC2009 ShellCheck warning for
