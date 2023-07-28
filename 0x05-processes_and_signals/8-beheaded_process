@@ -2,13 +2,4 @@
 # This script kills the process 7-highlander.
 
 # Find the PID of the 7-highlander process
-process_pid=$(pgrep -f "7-highlander")
-
-if [ -n "$process_pid" ]; then
-  echo "Killing 7-highlander process with PID: $process_pid"
-  # Send SIGTERM signal to terminate the process
-  kill "$process_pid"
-else
-  echo "7-highlander process is not running."
-fi
-
+kill -9 "$(pgrep -f highlander)"
