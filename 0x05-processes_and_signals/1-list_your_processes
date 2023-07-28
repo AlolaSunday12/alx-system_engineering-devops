@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# This script displays a list of currently running processes, including
+# their hierarchy, in a user-oriented format.
+
+
+# Using the 'ps' command to get the process information.
+# The 'axo' options format the output to show all processes (including those
+# without a controlling terminal), and specify the columns to display in the
+# following order: USER, PID, %CPU, %MEM, VSZ, RSS, TTY, STAT, START, TIME,
+# COMMAND.
+ps axo user,pid,%cpu,%mem,vsz,rss,tty,stat,start,time,command | head -50
