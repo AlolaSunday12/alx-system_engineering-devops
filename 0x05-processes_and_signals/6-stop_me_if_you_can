@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# This script stops the 4-to_infinity_and_beyond process.
+
+
+# Function to handle the termination signal
+terminate_process() {
+    echo "Terminating 4-to_infinity_and_beyond process..."
+    pkill -P $$ "4-to_infinity_and_beyond"
+}
+
+# Set up the signal handler to catch SIGUSR1
+trap 'terminate_process' SIGUSR1
+
+echo "4-to_infinity_and_beyond process is running. Press Ctrl+C in \
+terminal #1 to stop it."
+# Infinite loop to keep the script running
+while true; do
+    echo "To infinity and beyond"
+    sleep 2
+done
