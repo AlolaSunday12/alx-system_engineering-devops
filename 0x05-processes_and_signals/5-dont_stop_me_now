@@ -3,12 +3,4 @@
 
 
 # Find the PID of the 4-to_infinity_and_beyond process
-process_pid=$(pgrep -f "4-to_infinity_and_beyond")
-
-if [ -n "$process_pid" ]; then
-  echo "Stopping 4-to_infinity_and_beyond process with PID: $process_pid"
-  # Send SIGTERM signal to terminate the process
-  kill "$process_pid"
-else
-  echo "4-to_infinity_and_beyond process is not running."
-fi
+kill "$(pgrep -f 4-to_infinity_and_beyond)"
