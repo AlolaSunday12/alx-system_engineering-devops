@@ -1,4 +1,4 @@
-# Configure ssh client so that you can connect to a server without typing a password
+include /etc/ssh/ssh_config.d/*.conf
 
 Host *
 #   ForwardAgent no
@@ -30,3 +30,10 @@ Host *
 #   Tunnel no
 #   TunnelDevice any:any
 #   PermitLocalCommand no
+#   VisualHostKey no
+#   ProxyCommand ssh -q -W %h:%p gateway.example.com
+#   RekeyLimit 1G 1h
+    SendEnv LANG LC_*
+    HashKnownHosts yes
+    GSSAPIAuthentication yes
+    GSSAPIDelegateCredentials no
