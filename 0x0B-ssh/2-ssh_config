@@ -1,4 +1,4 @@
-include /etc/ssh/ssh_config.d/*.conf
+# Configure ssh client so that you can connect to a server without typing a password.
 
 Host *
 #   ForwardAgent no
