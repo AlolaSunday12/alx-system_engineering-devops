@@ -6,17 +6,19 @@ import sys
 
 
 if __name__ == '__main__':
-    employee_id = sys.argv[1]
-    base_url = "https://jsonplaceholder.typicode.com/users"
-    url = f"{base_url}/{employee_id}"
+    employeeId = sys.argv[1]
+    baseUrl = "https://jsonplaceholder.typicode.com/users"
+    url = baseUrl + "/" + employeeId
 
     response = requests.get(url)
     username = response.json().get('username')
 
-    todo_url = f"{url}/todos"
-    response = requests.get(todo_url)
+    todoUrl = url + "/todos"
+    response = requests.get(todoUrl)
     tasks = response.json()
 
-    with open(f"{employee_id}.csv", 'w') as file:
+    with open('{}.csv'.format(employeeId), 'w') as file:
         for task in tasks:
-            file.write(f'"{employee_id}","{username}","{task.get("completed")}","{task.get("title")}"\n')
+            file.write('"{}","{}","{}","{}"\n'
+                       .format(employeeId, username, task.get('completed'),
+                               task.get('title')))
